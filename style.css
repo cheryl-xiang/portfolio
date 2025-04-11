@@ -2,12 +2,11 @@
   --color-accent: oklch(0.51 0.1398 296.01);
   accent-color: var(--color-accent);
 }
-  
 
 body {
     /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
+    and use the OS’s UI font as the website font
+    */
     font: 100%/1.5 system-ui;
 
   /* Center content and add max-width */
@@ -16,6 +15,21 @@ body {
   margin-inline: max(1em, (100% - 100ch) / 2);
   accent-color: var(--color-accent);
   }
+
+/* resume styling */
+body.resume {
+  text-align: left;
+}
+
+head.resume {
+  text-align:left;
+}
+
+.resume h2 {
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #ddd;
+}
 
 /* Nav styling */
 nav {
@@ -50,4 +64,59 @@ nav a:hover {
 nav a.current {
   border-bottom: 3px solid var(--color-accent);
   font-weight: bold;
+}
+
+/* contact sheet styling */
+input, textarea, button {
+  font: inherit;
+}
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+label {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+  gap: 1em;
+}
+
+button {
+  grid-column: 1 / -1;
+  justify-self: center;
+  padding: 0.5em 1em;
+}
+
+/* projects styling */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+}
+
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+}
+
+.projects h2 {
+  margin: 0;
+}
+
+.projects img {
+  width: 100%;
+  height: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+
+h1 {
+  font-size: 400%;
 }
