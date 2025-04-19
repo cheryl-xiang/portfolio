@@ -1,7 +1,5 @@
 console.log('IT’S ALIVE!');
 
-const BASE_PATH = '/portfolio';
-
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
 }
@@ -14,6 +12,8 @@ const pages = [
   { url: 'https://github.com/cheryl-xiang', title: 'GitHub' }
 ];
  
+const IS_GITHUB_PAGES = location.hostname === 'cheryl-xiang.github.io/'; 
+const BASE_PATH = IS_GITHUB_PAGES ? '/portfolio' : '';
 const ARE_WE_HOME = document.documentElement.classList.contains('home');
 
 let nav = document.createElement('nav');
