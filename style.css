@@ -1,5 +1,11 @@
+html {
+  color-scheme: light dark;
+  background-color: Canvas;
+  color: CanvasText;
+}
+
 :root {
-  --color-accent: oklch(0.51 0.1398 296.01);
+  --color-accent: oklch(50% 0.15 300); /* Light mode purple */
   accent-color: var(--color-accent);
 }
 
@@ -119,4 +125,15 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 400%;
+}
+
+/* Theme Switch */
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit; 
+  display: flex; 
+  align-items: center;
 }
