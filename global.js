@@ -11,9 +11,10 @@ const pages = [
   { url: 'contact/', title: 'Contact' },
   { url: 'https://github.com/cheryl-xiang', title: 'GitHub' }
 ];
- 
+
 const IS_GITHUB_PAGES = location.hostname === 'cheryl-xiang.github.io';
 const BASE_PATH = IS_GITHUB_PAGES ? '/portfolio' : '';
+const ARE_WE_HOME = document.documentElement.classList.contains('home'); 
 
 let nav = document.createElement('nav');
 document.body.prepend(nav);
@@ -22,28 +23,32 @@ for (let p of pages) {
   let url = p.url;
   let title = p.title;
 
-  url = !url.startsWith('http') ? BASE_PATH + '/' + url : url;
+  url = !ARE_WE_HOME && !url.startsWith('http') ? BASE_PATH + '/' + url : url;
 
   let a = document.createElement('a');
   a.href = url;
   a.textContent = title;
-  nav.append(a);
 
-  a.classList.toggle(
-    'current',
-    a.host === location.host && a.pathname === location.pathname
-  );
+  const currentPath = location.pathname.endsWith('/')
+    ? location.pathname
+    : location.pathname + '/';
+  const linkPath = a.pathname.endsWith('/')
+    ? a.pathname
+    : a.pathname + '/';
 
-  a.toggleAttribute('target', a.host !== location.host);
+  if (a.host === location.host && linkPath === currentPath) {
+    a.classList.add('current');
+  }
 
-  if (a.target) {
+  if (p.url.startsWith('http')) {
     a.target = '_blank';
+    a.rel = 'noopener noreferrer';
   }
 
   nav.append(a);
 }
 
-/*Color scheme */
+/* Color scheme switcher */
 
 document.body.insertAdjacentHTML(
   'afterbegin',
@@ -70,16 +75,16 @@ function updateTheme(scheme) {
   document.documentElement.style.setProperty('color-scheme', scheme);
 }
 
-let select = document.querySelector('select');
+let select = document.querySelector('#theme-selector');
 
 if ('colorScheme' in localStorage) {
   let scheme = localStorage.colorScheme;
   select.value = scheme;
-  updateTheme(scheme); 
+  updateTheme(scheme);
 }
 
 select.addEventListener('input', function (event) {
   let scheme = event.target.value;
   localStorage.colorScheme = scheme;
-  updateTheme(scheme); 
+  updateTheme(scheme);
 });
