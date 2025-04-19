@@ -60,29 +60,27 @@ document.body.insertAdjacentHTML(
   `
 );
 
+function updateTheme(scheme) {
+  document.documentElement.classList.remove('light', 'dark');
+
+  if (scheme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else if (scheme === 'light') {
+    document.documentElement.classList.add('light');
+  }
+  document.documentElement.style.setProperty('color-scheme', scheme);
+}
+
 let select = document.querySelector('select');
 
 if ('colorScheme' in localStorage) {
-    let scheme = localStorage.colorScheme;
-    document.documentElement.style.setProperty('color-scheme', scheme);
-    select.value = scheme;
-
-    if (scheme === 'dark') {
-      document.documentElement.style.setProperty('--color-accent', 'oklch(80% 0.1 300)');
-    } else {
-      document.documentElement.style.setProperty('--color-accent', 'oklch(50% 0.15 300)');
-    }
+  let scheme = localStorage.colorScheme;
+  select.value = scheme;
+  updateTheme(scheme); 
 }
 
 select.addEventListener('input', function (event) {
-    let scheme = event.target.value;
-    document.documentElement.style.setProperty('color-scheme', scheme);
-
-    localStorage.colorScheme = scheme;
-
-    if (scheme === 'dark') {
-      document.documentElement.style.setProperty('--color-accent', 'oklch(80% 0.1 300)');
-    } else {
-      document.documentElement.style.setProperty('--color-accent', 'oklch(50% 0.15 300)');
-    }
+  let scheme = event.target.value;
+  localStorage.colorScheme = scheme;
+  updateTheme(scheme); 
 });
