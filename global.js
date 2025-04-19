@@ -12,9 +12,8 @@ const pages = [
   { url: 'https://github.com/cheryl-xiang', title: 'GitHub' }
 ];
  
-const IS_GITHUB_PAGES = location.hostname === 'cheryl-xiang.github.io'; 
+const IS_GITHUB_PAGES = location.hostname === 'cheryl-xiang.github.io';
 const BASE_PATH = IS_GITHUB_PAGES ? '/portfolio' : '';
-const ARE_WE_HOME = document.documentElement.classList.contains('home');
 
 let nav = document.createElement('nav');
 document.body.prepend(nav);
@@ -23,7 +22,7 @@ for (let p of pages) {
   let url = p.url;
   let title = p.title;
 
-  url = !ARE_WE_HOME && !url.startsWith('http') ? BASE_PATH + '/' + url : url;
+  url = !url.startsWith('http') ? BASE_PATH + '/' + url : url;
 
   let a = document.createElement('a');
   a.href = url;
