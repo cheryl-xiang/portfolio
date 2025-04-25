@@ -1,0 +1,62 @@
+[
+    {
+        "title": "N-Gram Language Model",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Created N-Gram-based language model to analyze and generate text sequences. Implemented tokenization and generation for unigram, bigram, and higher-order models. Trained probabilistic models by computing conditional probabilities of tokens."
+    },
+    {
+        "title": "Exercitationem aliquid corrupti harum.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Illum iusto similique iste obcaecati. Reprehenderit eos eius beatae labore, vero dolore quos nemo nobis perferendis natus laborum ullam in, quae fugiat nam ea omnis, distinctio molestiae voluptas possimus sapiente!"
+    },
+    {
+        "title": "Vel porro voluptatum sed.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Quos itaque vel delectus facilis enim. Alias architecto dignissimos quaerat unde aut commodi laborum, sed velit, similique optio impedit? Aliquid quod quo esse magnam at fugit voluptatem ad accusamus rerum."
+    },
+    {
+        "title": "Quidem molestiae magni repudiandae!",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Dolore, incidunt inventore. Vero similique ex consequuntur voluptates, nulla ad eaque reprehenderit facere, perferendis libero, repellendus delectus. Optio neque repudiandae eum. Harum molestias voluptatum unde cumque dolorum. Optio, quia hic?"
+    },
+    {
+        "title": "Architecto at quisquam suscipit.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Illum culpa, aliquid ipsa voluptatem consectetur nostrum laboriosam quaerat assumenda ut perferendis! Asperiores aliquam tempore, laborum consectetur aut dolore? Delectus assumenda accusantium natus, excepturi aperiam harum cupiditate sequi illum voluptate!"
+    },
+    {
+        "title": "Tempore ex iure ullam.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Maiores, doloremque minus accusantium, quod laudantium minima sit velit iste aliquid non exercitationem ut animi voluptate illum corrupti impedit consequuntur totam. Iure temporibus consectetur facilis nobis quidem dignissimos eum atque?"
+    },
+    {
+        "title": "Perferendis sequi nemo culpa!",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Harum consectetur rerum architecto enim reprehenderit itaque optio maiores. Sed itaque vero aspernatur perferendis commodi pariatur explicabo dolor. Laboriosam eaque maiores earum natus voluptate neque quos ipsum quasi obcaecati perspiciatis."
+    },
+    {
+        "title": "Voluptatum ullam culpa consequuntur.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Commodi magnam nostrum non eius pariatur nesciunt ut architecto sit libero fugit eligendi iure aliquam, ducimus, cupiditate, impedit veniam magni. Exercitationem quos corrupti, explicabo accusantium suscipit delectus quia praesentium quisquam."
+    },
+    {
+        "title": "Itaque aut quia exercitationem.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Ipsam ratione quam voluptas tenetur quod odio quas ullam eligendi doloribus autem in repellendus corrupti, obcaecati, officia libero aperiam, itaque dicta. Amet molestias, placeat ut corporis voluptatem fugit repudiandae corrupti."
+    },
+    {
+        "title": "Debitis mollitia tenetur fugiat.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Id reiciendis minima ea, dolore ipsa itaque nulla odio placeat. Earum doloribus blanditiis corporis tempore vitae voluptatibus error odio, maiores molestiae ex quas soluta explicabo. Doloremque saepe amet veritatis adipisci."
+    },
+    {
+        "title": "Porro repellat reprehenderit eaque.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Necessitatibus molestias voluptatibus dolorem, officia, ex id aliquam enim neque, quae nemo dolor vero itaque quasi voluptates ea ab corporis commodi amet ratione perferendis repellat explicabo corrupti! Possimus, quo dolor!"
+    },
+    {
+        "title": "Ullam, impedit. Suscipit, perspiciatis.",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Eligendi saepe facere ab voluptate quia. Ea impedit, quam harum quibusdam odio omnis laborum quo eos soluta dolorum cupiditate molestias corporis totam error eum. Culpa qui recusandae rerum aspernatur exercitationem!"
+    }
+]
