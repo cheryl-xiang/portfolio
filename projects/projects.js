@@ -1,6 +1,6 @@
 import { fetchJSON, renderProjects } from '../global.js';
 
-const projects = await fetchJSON(`./lib/projects.json?v=${Date.now()}`);
+const projects = await fetchJSON(`../lib/projects.json?v=${Date.now()}`);
 const projectsContainer = document.querySelector('.projects');
 renderProjects(projects, projectsContainer, 'h2');
 
