@@ -1,6 +1,8 @@
 import { fetchJSON, renderProjects } from '../global.js';
 
-const projects = await fetchJSON(`../lib/projects.json?v=${Date.now()}`);
+const base = location.hostname.includes('github.io') ? '/portfolio/' : '/';
+const projects = await fetchJSON(`${base}lib/projects.json?v=${Date.now()}`);
+
 const projectsContainer = document.querySelector('.projects');
 renderProjects(projects, projectsContainer, 'h2');
 
