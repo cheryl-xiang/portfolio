@@ -200,6 +200,17 @@ path {
   gap: 20px;
 }
 
+.selected {
+  --color: oklch(50% 0.15 300) !important;
+}
+
+.selected:is(path) {
+  fill: var(--color);
+}
+path {
+  cursor: pointer;
+}
+
 /* Theme Switch */
 .color-scheme {
   position: absolute;
