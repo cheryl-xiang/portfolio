@@ -88,7 +88,15 @@ function renderPieChart(projectsGiven) {
     .on('click', (event, d) => {
       const i = d.index;
       selectedIndex = selectedIndex === i ? -1 : i;
-      renderPieChart(projectsGiven);
+    
+      const selectedYear = selectedIndex === -1 ? null : d.data.label;
+    
+      const visibleProjects = selectedYear
+        ? projectsGiven.filter(p => p.year === selectedYear)
+        : projectsGiven;
+    
+      renderProjects(visibleProjects, projectsContainer, 'h2');
+      renderPieChart(projectsGiven); 
     });
 
   // Draw legend
