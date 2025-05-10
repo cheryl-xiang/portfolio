@@ -8,6 +8,7 @@ const pages = [
   { url: '', title: 'Home' },
   { url: 'projects/', title: 'Projects' },
   { url: 'resume/', title: 'Resume' },
+  { url: 'meta/', title: 'Meta' },
   { url: 'contact/', title: 'Contact' },
   { url: 'https://github.com/cheryl-xiang', title: 'GitHub' }
 ];

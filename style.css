@@ -248,3 +248,36 @@ path {
   margin: 0;
   grid-row: 2;
 }
+
+/* meta stats styling */
+.meta-page h2 {
+  text-align: left;
+}
+
+#stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8em, 1fr));
+  gap: 1em; /* Adjust spacing between columns */
+  margin: 2em 0;
+  padding: 0;
+  text-align: left;
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stat-block dt {
+  font-weight: bold;
+  font-size: 0.85em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  margin-bottom: 0.2em;
+}
+
+.stat-block dd {
+  margin: 0;
+  font-size: 1.8em;
+}
