@@ -281,3 +281,14 @@ path {
   margin: 0;
   font-size: 1.8em;
 }
+
+/* meta commit plot styling */
+.gridlines line {
+  stroke: lightgray;
+  stroke-opacity: 0.3;
+  shape-rendering: crispEdges;
+}
+
+.gridlines path {
+  display: none;
+}
