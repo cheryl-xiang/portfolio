@@ -143,7 +143,9 @@ function processCommits(inputData) {
     gridlines.call(d3.axisLeft(yScale).tickFormat('').tickSize(-usableArea.width));
     
     // Create the axes
-    const xAxis = d3.axisBottom(xScale);
+    const xAxis = d3.axisBottom(xScale)
+        .tickFormat(d3.timeFormat('%b %d'))  // consistent format
+        .ticks(d3.timeDay.every(2));         // one tick every 2 days
     const yAxis = d3
         .axisLeft(yScale)
         .tickFormat((d) => String(d % 24).padStart(2, '0') + ':00');
