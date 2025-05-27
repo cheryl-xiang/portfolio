@@ -47,6 +47,7 @@ function processCommits(inputData) {
 
   function renderCommitInfo(data, commits) {
     const container = d3.select('#stats');
+    container.selectAll('*').remove();
 
     function addStat(label, value) {
         const block = container.append('div').attr('class', 'stat-block');
@@ -115,7 +116,7 @@ function processCommits(inputData) {
     
     dots
         .selectAll('circle')
-        .data(sortedCommits)
+        .data(sortedCommits, (d) => d.id)
         .join('circle')
         .attr('cx', (d) => xScale(d.datetime))
         .attr('cy', (d) => yScale(d.hourFrac))
@@ -145,16 +146,17 @@ function processCommits(inputData) {
     // Create the axes
     const xAxis = d3.axisBottom(xScale)
         .tickFormat(d3.timeFormat('%b %d'))  // consistent format
-        .ticks(d3.timeDay.every(2));         // one tick every 2 days
+        //.ticks(d3.timeDay.every(2));         
     const yAxis = d3
         .axisLeft(yScale)
         .tickFormat((d) => String(d % 24).padStart(2, '0') + ':00');
 
     // Add X axis
     svg
-        .append('g')
-        .attr('transform', `translate(0, ${usableArea.bottom})`)
-        .call(xAxis);
+      .append('g')
+      .attr('class', 'x-axis')
+      .attr('transform', `translate(0, ${usableArea.bottom})`)
+      .call(xAxis);;
 
     // Add Y axis
     svg
@@ -281,6 +283,7 @@ function processCommits(inputData) {
 
 //Lab 8
 let commitProgress = 100;
+let filteredCommits = commits;
 
 let timeScale = d3
   .scaleTime()
@@ -307,6 +310,60 @@ function formatDateTime(date) {
   return `${datePart} at ${timePart}`;
 }
 
+function updateScatterPlot(data, commits) {
+  const width = 1000;
+  const height = 600;
+  const margin = { top: 10, right: 10, bottom: 30, left: 20 };
+  const usableArea = {
+    top: margin.top,
+    right: width - margin.right,
+    bottom: height - margin.bottom,
+    left: margin.left,
+    width: width - margin.left - margin.right,
+    height: height - margin.top - margin.bottom,
+  };
+
+  const svg = d3.select('#chart').select('svg');
+
+  xScale = xScale.domain(d3.extent(commits, (d) => d.datetime));
+
+  const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
+  const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 30]);
+
+  const xAxis = d3.axisBottom(xScale)
+    .tickFormat(d3.timeFormat('%b %d')) 
+    //.ticks(d3.timeDay.every(2));         
+
+  // CHANGE: we should clear out the existing xAxis and then create a new one.
+  const xAxisGroup = svg.select('g.x-axis');
+  xAxisGroup.selectAll('*').remove();
+  xAxisGroup.call(xAxis);
+
+  const dots = svg.select('g.dots');
+
+  const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
+  dots
+    .selectAll('circle')
+    .data(sortedCommits, (d) => d.id)
+    .join('circle')
+    .attr('cx', (d) => xScale(d.datetime))
+    .attr('cy', (d) => yScale(d.hourFrac))
+    .attr('r', (d) => rScale(d.totalLines))
+    .style('fill', 'var(--color-accent)')
+    .style('fill-opacity', 0.7)
+    .on('mouseenter', (event, commit) => {
+        d3.select(event.currentTarget).style('fill-opacity', 1);
+        renderTooltipContent(commit);
+        updateTooltipVisibility(true);
+        updateTooltipPosition(event);
+    })
+    .on('mouseleave', (event) => {
+        d3.select(event.currentTarget).style('fill-opacity', 0.7);
+        updateTooltipVisibility(false);
+    });
+}
+
+
 function onTimeSliderChange() {
   const slider = document.getElementById('commit-progress');
   commitProgress = +slider.value;
@@ -315,6 +372,10 @@ function onTimeSliderChange() {
 
   const timeEl = document.getElementById('commit-time');
   timeEl.textContent = formatDateTime(commitMaxTime);
+
+  filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
+  updateScatterPlot(data, filteredCommits);
+  renderCommitInfo(data.filter((d) => d.datetime <= commitMaxTime), filteredCommits);
 }
 
 document.getElementById('commit-progress')
