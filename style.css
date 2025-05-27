@@ -383,7 +383,7 @@ circle.selected {
   padding: 0;
   text-align: center;
   max-width: 600px;
-  margin-bottom: 4em;
+  margin-bottom: 2em;
 }
 
 #language-breakdown dt {
@@ -391,12 +391,12 @@ circle.selected {
   font-weight: bold;
   text-transform: uppercase;
   color: var(--color-accent);
-  margin-bottom: 0.3em;
+  margin-bottom: 0.2em;
   grid-row: 1;
 }
 
 #language-breakdown dd {
-  font-size: 1.4em;
+  font-size: 1em;
   font-weight: 500;
   margin: 0;
   grid-row: 2;
@@ -433,4 +433,91 @@ circle.selected {
   color: CanvasText;
 }
 
+/* stats animation */
+#files {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
 
+  > div {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+    margin-bottom: 1em;
+  }
+
+  dt {
+    grid-column: 1;
+    text-align: left;
+  }
+
+  .file-stats dd {
+    grid-column: 2;
+  }
+}
+
+dt code {
+  font-family: monospace;
+  text-align: left;
+}
+
+dt small {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-top: 0.2em;
+  text-align: left;
+}
+
+/* Unit dot style */
+.file-stats .loc {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;          
+  background: var(--color, steelblue);;
+  border-radius: 50%;        
+}
+
+/* Wrap dots inside <dd> */
+.file-stats dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  justify-content: flex-start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+
+  > * {
+    flex: 1;
+  }
+}
+
+#scatter-story {
+  position: relative;
+}
+
+#scatter-plot {
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  height: 50vh;
+}
+
+.step {
+  padding-bottom: 7vh;
+  max-width: 50ch;
+  margin: 0 auto;
+  font-size: 1.05em;
+  line-height: 1.6;
+  text-align: left;
+  font-size: 0.9em; 
+}

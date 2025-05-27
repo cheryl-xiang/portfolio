@@ -23,28 +23,37 @@
 
     
     <h2 style="margin-top: 2rem;">Summary</h2>
-    <div id="stats"></div>
+
     
     <h2 style="margin-top: 4rem;">Commits by time of day</h2>
-    <div id="chart"></div>
-    <dl id="commit-tooltip" class="info tooltip" hidden>
-        <dt>Commit</dt>
-        <dd>
-          <a href="" id="commit-link" target="_blank"></a>
-        </dd>
-        <dt>Date</dt>
-        <dd id="commit-date"></dd>
-        <dt>Time</dt>
-        <dd id="commit-time"></dd>
-        <dt>Author</dt>
-        <dd id="commit-author"></dd>
-        <dt>Lines Edited</dt>
-        <dd id="commit-lines"></dd>
-    </dl>
 
-    <p style="text-align: left;" id="selection-count">No commits selected</p>
+    <div id="scrolly-1">
+        <div id="scatter-story">
+            <p>
+                This scatter plot shows when commits were made throughout the day. You can brush over the plot to select a subset of commits and see detailed stats about files and languages used.
+            </p>
+        </div>
 
-    <dl id="language-breakdown" class="stats"></dl>
+        <div id="scatter-plot">
+            <div id="chart"></div>
+            <dl id="commit-tooltip" class="info tooltip" hidden>
+                <dt>Commit</dt>
+                <dd><a href="" id="commit-link" target="_blank"></a></dd>
+                <dt>Date</dt>
+                <dd id="commit-date"></dd>
+                <dt>Time</dt>
+                <dd id="commit-time"></dd>
+                <dt>Author</dt>
+                <dd id="commit-author"></dd>
+                <dt>Lines Edited</dt>
+                <dd id="commit-lines"></dd>
+            </dl>
+
+            <p style="text-align: left;" id="selection-count">No commits selected</p>
+            <dl id="language-breakdown" class="stats"></dl>
+            <dl id="files" class="file-stats"></dl>
+        </div>
+    </div>
 
 </body>
 </html>
