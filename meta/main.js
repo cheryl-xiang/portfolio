@@ -277,3 +277,48 @@ function processCommits(inputData) {
           `;
     }
   }
+
+
+//Lab 8
+let commitProgress = 100;
+
+let timeScale = d3
+  .scaleTime()
+  .domain([
+    d3.min(commits, (d) => d.datetime),
+    d3.max(commits, (d) => d.datetime),
+  ])
+  .range([0, 100]);
+let commitMaxTime = timeScale.invert(commitProgress);
+
+function formatDateTime(date) {
+  const datePart = date.toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  });
+
+  const timePart = date.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true
+  });
+
+  return `${datePart} at ${timePart}`;
+}
+
+function onTimeSliderChange() {
+  const slider = document.getElementById('commit-progress');
+  commitProgress = +slider.value;
+
+  commitMaxTime = timeScale.invert(commitProgress);
+
+  const timeEl = document.getElementById('commit-time');
+  timeEl.textContent = formatDateTime(commitMaxTime);
+}
+
+document.getElementById('commit-progress')
+        .addEventListener('input', onTimeSliderChange);
+
+onTimeSliderChange();
+

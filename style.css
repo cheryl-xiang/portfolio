@@ -304,7 +304,7 @@ dl.info dt {
   text-transform: uppercase;
   font-weight: normal;
   font-size: 0.75em;
-  color: var(--color-accent, gray); /* optional: use your accent color */
+  color: var(--color-accent, gray); 
   margin-bottom: 0.25em;
 }
 
@@ -396,6 +396,37 @@ circle.selected {
   font-weight: 500;
   margin: 0;
   grid-row: 2;
+}
+
+
+/* meta animations styling */
+.time-filter {
+  width: 100%;
+  max-width: 100%;
+}
+
+.label-and-slider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.label-and-slider label {
+  white-space: nowrap;
+  font-weight: bold;
+}
+
+.label-and-slider input[type="range"] {
+  flex: 1;              
+  margin: 0;
+}
+
+#commit-time {
+  display: block;
+  text-align: right;  
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: CanvasText;
 }
 
 

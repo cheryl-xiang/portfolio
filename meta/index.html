@@ -13,6 +13,15 @@
 
     <p>This page includes stats about the code of this website.</p>
 
+    <div class="time-filter">
+        <div class="label-and-slider">
+            <label for="commit-progress">Show commits until:</label>
+            <input type="range" id="commit-progress" min="0" max="100" value="100" />
+        </div>
+        <time id="commit-time"></time>
+    </div>
+
+    
     <h2 style="margin-top: 2rem;">Summary</h2>
     <div id="stats"></div>
     
